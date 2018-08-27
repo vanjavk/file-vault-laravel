@@ -16,23 +16,6 @@ class File extends Model
     public function storefile(Request $request)
     {
         // Validate the request...
-    	
-
-        $flight = new Flight;
-
-        $flight->id = $request->id;
-
-        $flight->name = $request->name;
-
-        $flight->uploader = $request->uploader;
-
-        $flight->location = $request->location;
-
-        $flight->size = $request->size;
-
-        $flight->public = $request->public;
-
-        $flight->save();
 
     }
 }

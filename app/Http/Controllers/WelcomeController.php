@@ -63,7 +63,9 @@ class WelcomeController extends Controller
         {
             
             $files = File::where('uploader','=', Auth::id())->orderBy('created_at')->get();
-            #die(Auth::id());
+            
+            #var_dump($files);
+            #die("xdebug");
             foreach($files as $k=>$v)
             {
                 $files[$k]['size']=formatUnitSize($files[$k]['size']);
