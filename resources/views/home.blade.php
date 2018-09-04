@@ -32,13 +32,14 @@
                     ?><br>
                     @if(!empty($files))
                     @if(count($files)>0)
-                    <table class='table table-bordered'><thead class='thead-light'><tr><th>File name</th><th>Size</th><th>Downloads</th><th>Options</th></tr>
+                    <table class='table table-bordered'><thead class='thead-light'><tr><th>File name</th><th>Size</th><th>Downloads</th><th>Safety</th><th>Options</th></tr>
 
                     @foreach($files as $v)
                     <tr>
                         <td style=''><a href='download/{{$v->id}}'> {{$v->name}} </a></td>
                         <td style=''>{{$v->size}} </td>
                         <td style=''>{{$v->downloads}}</td>
+                        <td style=''><a href='{{$v->viruspl}}'>{{$v->virusresult}}</a></td>
                         @if($v->public==1)
                         <td style=''>
                             <form action='editfileaccess' method='POST' style='float: left; padding-bottom:3px;'> @csrf 
@@ -48,7 +49,6 @@
                             <button type='submit' class='btn btn-danger'  name = 'fileremove' value = '{{$v->id}}'>remove</button>
                             </form>
                         </td>
-
                         @else
                         <td style=''>
                             <form action='editfileaccess' method='POST' style='float: left; padding-bottom:3px;'> @csrf 
